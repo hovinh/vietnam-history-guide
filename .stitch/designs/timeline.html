@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,900;1,400&amp;family=Be+Vietnam+Pro:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#8b0000",
+                    "surface-tint": "#b52619",
+                    "on-tertiary-container": "#9ea9ff",
+                    "tertiary-fixed-dim": "#bcc3ff",
+                    "on-surface": "#1b1c1a",
+                    "secondary-container": "#fed977",
+                    "primary": "#610000",
+                    "background": "#fbf9f5",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "on-primary-fixed": "#410000",
+                    "on-primary": "#ffffff",
+                    "primary-fixed": "#ffdad4",
+                    "on-error": "#ffffff",
+                    "tertiary": "#00178d",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#5a403c",
+                    "on-secondary-fixed": "#241a00",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#30312e",
+                    "on-secondary-container": "#785d00",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#e6c364",
+                    "on-primary-container": "#ff907f",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#0025c8",
+                    "on-background": "#1b1c1a",
+                    "on-tertiary-fixed-variant": "#0d2ccc",
+                    "surface-container-high": "#eae8e4",
+                    "surface-bright": "#fbf9f5",
+                    "surface": "#fbf9f5",
+                    "inverse-on-surface": "#f2f0ed",
+                    "surface-container": "#efeeea",
+                    "surface-dim": "#dbdad6",
+                    "outline": "#8e706b",
+                    "on-tertiary-fixed": "#000d60",
+                    "surface-container-highest": "#e4e2de",
+                    "secondary-fixed": "#ffe08f",
+                    "outline-variant": "#e3beb8",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#755b00",
+                    "on-primary-fixed-variant": "#920703",
+                    "tertiary-fixed": "#dfe0ff",
+                    "inverse-primary": "#ffb4a8",
+                    "on-secondary-fixed-variant": "#584400",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e4e2de",
+                    "surface-container-low": "#f5f3ef"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Be Vietnam Pro"],
+                    "label": ["Be Vietnam Pro"]
+            }
+          },
+        },
+      }
+    </script>
+<style>body { font-family: 'Be Vietnam Pro', sans-serif; background-color: #fbf9f5; }
+        h1, h2, h3, h4 { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #C9A84C 0%, #8b0000 50%, #C9A84C 100%);
+            opacity: 0.3;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 10px; }
+        .lacquer-gradient {
+            background: linear-gradient(135deg, #610000 0%, #8b0000 100%);
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -27px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background-color: #C9A84C;
+            border-radius: 9999px;
+            z-index: 10;
+            border: 2px solid #fbf9f5;
+        }</style>
+</head>
+<body class="bg-surface text-on-surface overflow-x-hidden antialiased">
+<!-- TopNavBar (Updated from SCREEN_15) -->
+<nav class="bg-[#fbf9f5]/80 dark:bg-slate-950/80 backdrop-blur-md fixed top-0 w-full z-50 bg-surface-container-low shadow-[0_20px_40px_-15px_rgba(65,0,0,0.06)] border-b-0">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-serif font-bold text-2xl text-[#8B0000] tracking-widest">LẠC VIỆT TÀNG THƯ</div>
+<div class="hidden md:flex gap-8 items-center font-serif text-lg tracking-tight">
+<a class="text-slate-700 font-medium hover:text-[#C9A84C] transition-colors duration-300" href="#">Trang Chủ</a>
+<a class="text-[#C9A84C] pb-1 font-bold" href="#">Dòng Thời Gian</a>
+<a class="text-slate-700 font-medium hover:text-[#C9A84C] transition-colors duration-300" href="#">Nhân Vật &amp; Sự Kiện</a></div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#8B0000] hover:text-[#C9A84C] cursor-pointer transition-colors duration-300">search</span>
+<button class="lacquer-gradient text-white font-label text-sm uppercase tracking-widest px-6 py-2 rounded scale-95 active:opacity-80 transition-all hover:brightness-110">ĐÓNG GÓP</button>
+</div>
+</div>
+</nav>
+<div class="flex max-w-screen-2xl mx-auto min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-72 fixed left-0 top-0 overflow-y-auto bg-[#fbf9f5] dark:bg-[#1b1c1a] shadow-[20px_0_40px_-20px_rgba(0,0,0,0.05)] border-r border-[#C9A84C]/10 flex flex-col gap-4 p-6 hidden lg:flex custom-scrollbar pt-32">
+<div class="mb-6 px-4">
+<p class="font-['Be_Vietnam_Pro'] text-xs uppercase tracking-[0.2em] text-secondary">Triều Đại</p>
+<h2 class="font-['Noto_Serif'] text-[#C9A84C] font-bold text-xl">Lịch sử Việt Nam</h2>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-4 py-3 text-[#1b1c1a] dark:text-[#fbf9f5] hover:bg-[#C9A84C]/10 rounded-r-full my-1 hover:translate-x-2 transition-transform duration-300 font-['Be_Vietnam_Pro'] text-sm uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="castle">castle</span>
+<span>Hùng Vương</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 bg-[#8b0000] text-[#fbf9f5] rounded-l-none rounded-r-full my-1 shadow-lg shadow-[#8b0000]/20 font-['Be_Vietnam_Pro'] text-sm uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span>Nhà Lý</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#1b1c1a] dark:text-[#fbf9f5] hover:bg-[#C9A84C]/10 rounded-r-full my-1 hover:translate-x-2 transition-transform duration-300 font-['Be_Vietnam_Pro'] text-sm uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="fort">fort</span>
+<span>Nhà Trần</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#1b1c1a] dark:text-[#fbf9f5] hover:bg-[#C9A84C]/10 rounded-r-full my-1 hover:translate-x-2 transition-transform duration-300 font-['Be_Vietnam_Pro'] text-sm uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="menu_book">menu_book</span>
+<span>Nhà Lê</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#1b1c1a] dark:text-[#fbf9f5] hover:bg-[#C9A84C]/10 rounded-r-full my-1 hover:translate-x-2 transition-transform duration-300 font-['Be_Vietnam_Pro'] text-sm uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="history">history</span>
+<span>Nhà Nguyễn</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#1b1c1a] dark:text-[#fbf9f5] hover:bg-[#C9A84C]/10 rounded-r-full my-1 hover:translate-x-2 transition-transform duration-300 font-['Be_Vietnam_Pro'] text-sm uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="museum">museum</span>
+<span>Cận Đại</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-[#f2eee3] pt-6 pb-20">
+<button class="w-full bg-[#8b0000] text-white py-3 rounded-lg font-bold text-xs uppercase tracking-widest shadow-md hover:brightness-110 transition-all">
+                    Khám Phá Toàn Cảnh
+                </button>
+<div class="flex gap-4 mt-6 justify-center">
+<span class="material-symbols-outlined opacity-50 cursor-pointer hover:opacity-100" data-icon="map">map</span>
+<span class="material-symbols-outlined opacity-50 cursor-pointer hover:opacity-100" data-icon="auto_stories">auto_stories</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 lg:ml-72 p-8 lg:p-16 pt-32">
+<div class="max-w-4xl">
+<!-- Header Section -->
+<header class="pt-12">
+<div class="flex items-center gap-2 mb-6">
+<span class="h-[1px] w-12 bg-secondary"></span>
+<span class="font-label text-secondary font-bold uppercase tracking-[0.3em] text-xs">Biên Niên Sử Việt</span>
+</div>
+<h1 class="font-black text-primary mb-6 leading-tight text-4xl lg:text-5xl">DÒNG THỜI GIAN <span class="text-secondary italic font-light">Lịch Sử Hào Hùng</span></h1>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed text-lg font-body">Hành trình qua hàng nghìn năm lịch sử của dân tộc Việt Nam, từ thuở hồng hoang dựng nước đến những triều đại huy hoàng và thời kỳ cận đại đầy biến động.</p>
+</header>
+<!-- Timeline Container -->
+<section class="timeline-line relative pl-12 space-y-24 mt-24">
+<!-- Major Era Node: Nhà Lý -->
+<div class="relative">
+<!-- Connector Node -->
+<div class="absolute -left-12 top-0 flex items-center justify-center w-10 h-10 bg-primary-container rounded-full border-4 border-surface shadow-xl z-10">
+<span class="material-symbols-outlined text-white text-sm" data-icon="account_balance">account_balance</span>
+</div>
+<div class="mb-12">
+<span class="text-secondary font-bold text-sm tracking-widest uppercase mb-2 block">1009 — 1225</span>
+<h2 class="text-3xl font-black text-primary uppercase">Kỷ Nguyên Độc Lập - Nhà Lý</h2>
+<div class="mt-4 p-6 bg-surface-container-low rounded-lg relative overflow-hidden group">
+<div class="absolute inset-0 opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/handmade-paper.png')]"></div>
+<p class="relative z-10 text-on-surface italic leading-relaxed">
+                                    "Nhà Lý mở đầu cho thời kỳ cực thịnh của văn hóa Thăng Long, xác lập nền tảng cho quốc hiệu Đại Việt vững mạnh."
+                                </p>
+</div>
+</div>
+<!-- Sub Nodes -->
+<div class="space-y-12">
+<!-- Event 1 -->
+<div class="flex flex-col md:flex-row gap-6 group relative items-stretch">
+<div class="w-24 shrink-0 pl-1 relative flex items-center">
+<div class="timeline-dot"></div>
+<span class="text-xl font-headline font-black text-secondary">1010</span>
+</div>
+<div class="flex-1 bg-white p-6 rounded-lg shadow-sm border-l-4 border-secondary/30 group-hover:border-secondary transition-all flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<h3 class="text-lg font-bold text-primary mb-2 font-headline"><span class="material-symbols-outlined text-[#C9A84C] text-xl align-middle mr-2">location_city</span>Lý Thái Tổ dời đô về Thăng Long</h3>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed mb-4">Vua ban Chiếu dời đô, chuyển kinh đô từ Hoa Lư (Ninh Bình) về thành Đại La và đổi tên thành Thăng Long, mở ra vận hội mới cho dân tộc.</p>
+<a class="text-primary font-headline font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-1 mt-auto" href="#">Xem chi tiết <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+</div>
+<div class="w-full md:w-32 h-40 md:h-24 overflow-hidden rounded shadow-sm">
+<img class="w-full h-full object-cover" data-alt="ancient Vietnamese royal architecture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZcG6_9DDTMQrEjBCQdNmEsAC18gH1inztvweo_1J9C0v2myLW1KPmGBXnPfXsIY6jRXAETE3tMBww5VzOSW5oq3Lv2DdUiZbPG-wI-9BYFielEzLYfG9CoG-nir5i-wIfjVv_GbF6CpE35Bx8-F72lkv9BmWvCv-4LOm5-5T1AsK8jr83LKPGaCUEfajEogD392wG6j1lpeHc-7BYtnSUfV8Adslrypl02D4rbXaVx5fkbP1Ywr6jqgEeslL1jgeHBS_mu70cy9Q"/>
+</div>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="flex flex-col md:flex-row gap-6 group relative items-stretch">
+<div class="w-24 shrink-0 pl-1 relative flex items-center">
+<div class="timeline-dot"></div>
+<span class="text-xl font-headline font-black text-secondary">1070</span>
+</div>
+<div class="flex-1 bg-white p-6 rounded-lg shadow-sm border-l-4 border-secondary/30 group-hover:border-secondary transition-all flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<h3 class="text-lg font-bold text-primary mb-2 font-headline"><span class="material-symbols-outlined text-[#C9A84C] text-xl align-middle mr-2">account_balance</span>Xây dựng Văn Miếu</h3>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed mb-4">Vua Lý Thánh Tông cho khởi công xây dựng Văn Miếu để thờ Khổng Tử và Chu Công, đặt nền móng cho nền giáo dục và khoa cử nước nhà.</p>
+<a class="text-primary font-headline font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-1 mt-auto" href="#">Xem chi tiết <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+</div>
+<div class="w-full md:w-32 h-40 md:h-24 overflow-hidden rounded shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Traditional Vietnamese temple gate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdtRr8NvHfgjeu2FbnerYN5SUpCLy0pi9TgZSVv56i4N3fJsmdxrTnMqCGpDgpNl2s3A1C2-sQx6wzBDXfHIwwgp2q7YXz9hs3kYU1tskRXPRe33hdPnxuIQJWL1euhOLrMLdapIcpiff2G-OqTKZYj9ml6w5GrPoP_9Ddn0Gf5Z74QbNESREphS-U6cqK3FNuWeH7d7MDVDzvr9UL0lZ5EqvV-ks2E-6ZSZdvW7cNypN6aKnT3tQ3DJoxaItM3nDP_XBPGj-eCuc"/>
+</div>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="flex flex-col md:flex-row gap-6 md:items-center group relative">
+<div class="w-24 shrink-0 pl-1 relative flex items-center">
+<div class="timeline-dot"></div>
+<span class="text-xl font-headline font-black text-secondary">1075</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-secondary/30 group-hover:border-secondary transition-all">
+<h3 class="text-lg font-bold text-primary mb-2"><span class="material-symbols-outlined text-[#C9A84C] text-xl align-middle mr-2">school</span>Kỳ thi Minh kinh bác học</h3>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">Mở khoa thi Nho học đầu tiên trong lịch sử. Lê Văn Thịnh đỗ Trạng nguyên đầu tiên của Việt Nam.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Major Era Node: Nhà Trần -->
+<div class="relative">
+<div class="absolute -left-12 top-0 flex items-center justify-center w-10 h-10 bg-secondary rounded-full border-4 border-surface shadow-xl z-10">
+<span class="material-symbols-outlined text-white text-sm" data-icon="fort">fort</span>
+</div>
+<div class="mb-12">
+<span class="text-secondary font-bold text-sm tracking-widest uppercase mb-2 block">1225 — 1400</span>
+<h2 class="text-3xl font-black text-primary uppercase">Hào Khí Đông A - Nhà Trần</h2>
+<div class="mt-4 p-6 bg-surface-container-low rounded-lg border-r-4 border-primary">
+<p class="text-on-surface font-body leading-relaxed">Thời đại của võ công hiển hách với ba lần chiến thắng quân Nguyên Mông xâm lược.</p>
+</div>
+</div>
+<!-- Sub Nodes -->
+<div class="space-y-12">
+<div class="flex flex-col md:flex-row gap-6 md:items-center group relative">
+<div class="w-24 shrink-0 pl-1 relative flex items-center">
+<div class="timeline-dot"></div>
+<span class="text-xl font-headline font-black text-secondary">1285</span>
+</div>
+<div class="flex-1 bg-surface-container-lowest p-6 rounded-lg shadow-sm border-l-4 border-secondary/30 group-hover:border-secondary transition-all">
+<h3 class="text-lg font-bold text-primary mb-2"><span class="material-symbols-outlined text-[#C9A84C] text-xl align-middle mr-2">groups</span>Hội nghị Diên Hồng</h3>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">Thể hiện sức mạnh đoàn kết dân tộc, toàn quân toàn dân đồng lòng quyết tâm "Sát Thát" đánh đuổi ngoại xâm.</p>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-6 group relative items-stretch">
+<div class="w-24 shrink-0 pl-1 relative flex items-center">
+<div class="timeline-dot"></div>
+<span class="text-xl font-headline font-black text-secondary">1288</span>
+</div>
+<div class="flex-1 bg-white p-6 rounded-lg shadow-sm border-l-4 border-secondary/30 group-hover:border-secondary transition-all flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<h3 class="text-lg font-bold text-primary mb-2 font-headline"><span class="material-symbols-outlined text-[#C9A84C] text-xl align-middle mr-2">sailing</span>Chiến thắng Bạch Đằng</h3>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed mb-4">Trần Hưng Đạo dùng kế cắm cọc trên sông Bạch Đằng, tiêu diệt hoàn toàn đội thuyền chiến quân Nguyên.</p>
+<a class="text-primary font-headline font-bold text-xs uppercase tracking-widest hover:underline flex items-center gap-1 mt-auto" href="#">Xem chi tiết <span class="material-symbols-outlined text-xs">arrow_forward</span></a>
+</div>
+<div class="w-full md:w-32 h-40 md:h-24 overflow-hidden rounded shadow-sm">
+<img class="w-full h-full object-cover" data-alt="Dramatic river landscape at dusk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWX2mvr33naRSV1WLU2T2Wefr2zc1_qn0ntIgT3tvU0zZY7aS3MxrOdcpAMt9OpqUG8hmtOKNqzBoV3YChU7-u6V65Jxhb3wZj-DCxIE3ltsTO_6OJFN_VOd6U-VMlmbDZhqGW3_ugA58h6n4HNehQ1293ZEddjGcGuh-Pdg6cuPG1rNCajO-bEzOdQPokY1jmrQ5nXUpFRHfuH5ux-rK5bCNiwlCUb9uPe3o66JQOFO2_JzEkGKYeeguK8EBiVjmLSMluYmGGpNs"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="relative py-12 flex justify-center items-center">
+<div class="text-center">
+<button class="bg-primary hover:bg-primary-container text-white px-8 py-3 rounded uppercase font-bold tracking-widest text-xs transition-colors flex items-center gap-2 mx-auto">
+                                Tải thêm lịch sử
+                                <span class="material-symbols-outlined text-sm" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Right Side Decorative/Stats Panel -->
+<aside class="hidden xl:block w-80 p-8 border-l border-secondary/10 pt-32">
+<div class="sticky top-32 space-y-8">
+<!-- Bento Info Card 1 -->
+<div class="bg-surface-container p-6 rounded-lg border-t-2 border-primary">
+<h4 class="font-headline font-bold text-primary mb-2">Điểm Sáng Di Sản</h4>
+<p class="text-xs text-on-surface-variant mb-4 leading-relaxed">Các di tích từ thời Lý - Trần vẫn còn tồn tại và được bảo tồn như biểu tượng của nền văn hiến lâu đời.</p>
+<div class="grid grid-cols-2 gap-2">
+<div class="h-16 rounded bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close up of ancient terracotta pottery with traditional Vietnamese patterns" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE_LRYpV2xLOBNyad4bQQCNpNMHGm1gguRp4hRB5f5owMGkiRJOsoxYdng6g0qsGHqGDgn_raqdJt0E_5jlqMRVL5CtzdVR8PEN8p8BSXFCqYpxffC12zJcJ70FOtTn3fDhpFRcC_aERkEkgfonrBQoNCDguPC_vdCTJw_TBVeoTh6OZLdf6EITHgewMmmgBfKuo1bzWyy8BhY56h7B89PSNLyyh0jezDSFrz2oEqJ1sFLEhLJuyRyi9QCGgTAfFeq9lVTTdzU8VA"/>
+</div>
+<div class="h-16 rounded bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="traditional lacquered wood panels with gold leaf carvings of lotus flowers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3GYls2L5TdvD7h3C3oU42oK8kmr_Ky2X2UKrNh0e9qALWRgY6t7UbznCScc3JVQ15PyxtiY89W903GRZ4abD39b-eMhb8VSIq10QvNARU0ztEB_VaYtZnWMl5FUFyMCiYURgSykugTac5QaThOES9Ce-t3sP8RSlIPrFvElww2QrqMbTvo6X0sc7eR8sufEzERb022kASJoH2bIR4lJEjc569l6rdYFqTA6m6D5QcJEr3kFiAUPM8Dxh72wFPhFbMc67a3uZGO_4"/>
+</div>
+</div>
+</div>
+<!-- Featured Person -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-secondary to-primary opacity-20 group-hover:opacity-40 transition-opacity blur rounded-lg"></div>
+<div class="relative bg-surface p-6 rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="person_outline">person_outline</span>
+<h4 class="font-headline font-bold text-primary text-lg">Lý Thường Kiệt</h4>
+<p class="text-xs font-label text-secondary uppercase tracking-widest mb-3">Thái úy triều Lý</p>
+<p class="text-xs leading-relaxed text-on-surface-variant italic">"Nam quốc sơn hà Nam đế cư, Tiệt nhiên định phận tại thiên thư..."</p>
+</div>
+</div>
+<!-- Timeline Navigation Summary -->
+<div class="space-y-4">
+<h4 class="text-xs font-label uppercase tracking-widest text-on-surface-variant opacity-50">Lược đồ nhanh</h4>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-bold text-primary">Thời đại Hùng Vương</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-bold text-primary">Thời kỳ Bắc Thuộc</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-4 h-4 rounded-full border-2 border-primary-container bg-surface flex items-center justify-center">
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container"></div>
+</div>
+<span class="text-sm font-black text-primary">Nhà Lý (Hiện tại)</span>
+</div>
+<div class="flex items-center gap-3 opacity-50">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="text-xs font-medium text-on-surface">Nhà Trần</span>
+</div>
+<div class="flex items-center gap-3 opacity-50">
+<div class="w-2 h-2 rounded-full bg-outline"></div>
+<span class="text-xs font-medium text-on-surface">Nhà Lê</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Footer (Updated from SCREEN_15) -->
+<footer class="bg-[#fbf9f5] w-full pt-16 pb-8 bg-gradient-to-t from-[#fbf9f5] to-transparent border-t border-[#8B0000]/10 mt-auto">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-serif font-black text-xl text-[#8B0000]">LẠC VIỆT TÀNG THƯ</span>
+<span class="font-sans text-sm uppercase tracking-widest text-slate-500">© 2024 LẠC VIỆT TÀNG THƯ. KHO LƯU TRỮ LỊCH SỬ SỐ QUỐC GIA.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6 font-sans text-sm uppercase tracking-widest">
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Thông Tin Tổ Chức</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Chính Sách Bảo Mật</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Tiêu Chuẩn Lưu Trữ</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Liên Hệ</a>
+</div>
+</div>
+</footer>
+</body></html>

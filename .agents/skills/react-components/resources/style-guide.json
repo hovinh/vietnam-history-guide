@@ -1,0 +1,41 @@
+{
+  "theme": {
+    "colors": {
+      "primary": "#610000",
+      "primary-container": "#8b0000",
+      "on-primary": "#ffffff",
+      "secondary": "#755b00",
+      "secondary-container": "#fed977",
+      "on-secondary": "#ffffff",
+      "surface": "#fbf9f5",
+      "surface-container-low": "#f5f3ef",
+      "surface-container": "#efeeea",
+      "surface-container-high": "#eae8e4",
+      "surface-container-highest": "#e4e2de",
+      "surface-container-lowest": "#ffffff",
+      "on-surface": "#1b1c1a",
+      "on-surface-variant": "#5a403c",
+      "outline": "#8e706b",
+      "outline-variant": "#e3beb8",
+      "gold": "#C9A84C"
+    },
+    "typography": {
+      "headline": ["Noto Serif", "serif"],
+      "body": ["Be Vietnam Pro", "sans-serif"],
+      "label": ["Be Vietnam Pro", "sans-serif"]
+    },
+    "borderRadius": {
+      "DEFAULT": "0.125rem",
+      "lg": "0.25rem",
+      "xl": "0.5rem",
+      "full": "0.75rem"
+    },
+    "spacing": {
+      "header-h": "72px",
+      "container-max": "1280px"
+    },
+    "custom": {
+      "lacquer-gradient": "linear-gradient(45deg, #610000 0%, #8b0000 100%)"
+    }
+  }
+}
