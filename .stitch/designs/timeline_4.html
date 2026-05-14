@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dòng Thời Gian - Lịch Sử Việt Nam</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "on-primary-fixed": "#410000",
+                        "surface-variant": "#e4e2de",
+                        "error": "#ba1a1a",
+                        "tertiary": "#00178d",
+                        "surface-dim": "#dbdad6",
+                        "outline-variant": "#e3beb8",
+                        "tertiary-fixed": "#dfe0ff",
+                        "on-tertiary-fixed-variant": "#0d2ccc",
+                        "primary-fixed": "#ffdad4",
+                        "secondary-fixed": "#ffe08f",
+                        "on-surface": "#1b1c1a",
+                        "surface-container": "#efeeea",
+                        "on-primary-fixed-variant": "#920703",
+                        "surface-container-low": "#f5f3ef",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-container": "#9ea9ff",
+                        "inverse-on-surface": "#f2f0ed",
+                        "on-secondary-fixed-variant": "#584400",
+                        "surface-tint": "#b52619",
+                        "surface-container-high": "#eae8e4",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e2de",
+                        "on-tertiary-fixed": "#000d60",
+                        "inverse-primary": "#ffb4a8",
+                        "secondary-fixed-dim": "#e6c364",
+                        "inverse-surface": "#30312e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#755b00",
+                        "on-primary-container": "#ff907f",
+                        "primary": "#610000",
+                        "on-background": "#1b1c1a",
+                        "outline": "#8e706b",
+                        "tertiary-container": "#0025c8",
+                        "on-surface-variant": "#5a403c",
+                        "on-primary": "#ffffff",
+                        "background": "#fbf9f5",
+                        "primary-container": "#8b0000",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#fed977",
+                        "surface": "#fbf9f5",
+                        "on-secondary-container": "#785d00",
+                        "surface-bright": "#fbf9f5",
+                        "tertiary-fixed-dim": "#bcc3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                        "label": ["Be Vietnam Pro", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #fbf9f5;
+            color: theme('colors.on-surface');
+            /* Subtle parchment texture */
+            background-image: radial-gradient(circle at 50% 50%, rgba(228, 226, 222, 0.1) 0%, rgba(228, 226, 222, 0.2) 100%);
+        }
+        h1, h2, h3, h4, h5, h6, .font-headline {
+            font-family: 'Noto Serif', serif;
+        }
+        
+        .dong-son-watermark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.02;
+            background-image: repeating-radial-gradient(
+                circle at 0 0, 
+                transparent 0,
+                #8B0000 10px,
+                transparent 11px,
+                transparent 20px
+            );
+            z-index: 0;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .lacquer-btn {
+            background: linear-gradient(45deg, #8B0000, #610000);
+            color: #ffffff;
+            border-radius: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        .lacquer-btn:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 4px 12px rgba(65, 0, 0, 0.15);
+        }
+        
+        .ghost-border-btn {
+            background: transparent;
+            color: #1b1c1a;
+            border: 1px solid #e3beb8;
+            border-radius: 0.25rem;
+        }
+        
+        .glass-panel {
+            background: rgba(251, 249, 245, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .lacquer-gradient {
+            background: linear-gradient(135deg, #610000 0%, #8b0000 100%);
+        }
+    </style>
+<style>
+  .custom-timeline-scrollbar {
+    width: 320px;
+    height: 4px;
+    background: rgba(201, 168, 76, 0.2);
+    border-radius: 2px;
+    position: relative;
+    margin: 2rem auto 0;
+  }
+  .custom-timeline-scrollbar-thumb {
+    width: 60px;
+    height: 100%;
+    background: #C9A84C;
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: left 0.3s ease;
+  }
+</style></head>
+<body class="min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="dong-son-watermark"></div>
+<!-- TopNavBar -->
+<nav class="bg-[#fbf9f5]/80 dark:bg-slate-950/80 backdrop-blur-md fixed top-0 w-full z-50 bg-surface-container-low shadow-[0_20px_40px_-15px_rgba(65,0,0,0.06)] border-b-0">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-serif font-bold text-2xl text-[#8B0000] tracking-widest">LẠC VIỆT TÀNG THƯ</div>
+<div class="hidden md:flex gap-8 items-center font-serif text-lg tracking-tight">
+<a class="text-slate-700 font-medium hover:text-[#C9A84C] transition-colors duration-300" href="#">Trang Chủ</a>
+<a class="text-[#C9A84C] pb-1 font-bold" href="#">Dòng Thời Gian</a>
+<a class="text-slate-700 font-medium hover:text-[#C9A84C] transition-colors duration-300" href="#">Nhân Vật &amp; Sự Kiện</a></div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#8B0000] hover:text-[#C9A84C] cursor-pointer transition-colors duration-300">search</span>
+<button class="lacquer-gradient text-white font-label text-sm uppercase tracking-widest px-6 py-2 rounded scale-95 active:opacity-80 transition-all hover:brightness-110">ĐÓNG GÓP</button>
+</div>
+</div>
+</nav>
+<main class="flex-grow pt-24 pb-12 relative z-10 flex flex-col bg-[#fbf9f5]">
+<!-- Historical Era Filter -->
+<div class="sticky top-[80px] z-40 w-full bg-[#fbf9f5]/95 backdrop-blur-md border-b border-outline-variant/30 py-3 px-12 transition-all mb-8 shadow-sm">
+<div class="max-w-screen-2xl mx-auto flex items-center space-x-8 overflow-x-auto hide-scrollbar">
+<span class="text-sm font-label text-stone-500 uppercase tracking-widest mr-2 flex-shrink-0">Bộ lọc thời đại:</span>
+<button class="font-headline text-sm md:text-base text-[#8B0000] font-bold border-b-2 border-[#8B0000] pb-1 whitespace-nowrap flex-shrink-0">Hùng Vương</button>
+<button class="font-headline text-sm md:text-base text-stone-600 hover:text-[#8B0000] transition-colors pb-1 whitespace-nowrap flex-shrink-0">Bắc Thuộc</button>
+<button class="font-headline text-sm md:text-base text-stone-600 hover:text-[#8B0000] transition-colors pb-1 whitespace-nowrap flex-shrink-0">Lý - Trần</button>
+<button class="font-headline text-sm md:text-base text-stone-600 hover:text-[#8B0000] transition-colors pb-1 whitespace-nowrap flex-shrink-0">Hậu Lê</button>
+<button class="font-headline text-sm md:text-base text-stone-600 hover:text-[#8B0000] transition-colors pb-1 whitespace-nowrap flex-shrink-0">Nguyễn</button>
+</div>
+</div>
+<section class="px-12 max-w-screen-2xl mx-auto w-full mb-16 relative">
+<h1 class="text-5xl md:text-7xl font-headline text-primary mb-4 relative z-10 w-2/3">Dòng Thời Gian</h1>
+<p class="text-lg text-on-surface-variant max-w-2xl font-body relative z-10">
+                Khám phá hành trình vĩ đại của dân tộc qua các triều đại lịch sử. Một biên niên sử được lưu giữ cẩn thận từ thuở hồng hoang dựng nước.
+            </p>
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-20 hidden md:block">
+<img alt="abstract ink wash painting evoking ancient scrolls and history" class="w-full h-full object-cover mix-blend-multiply" data-alt="abstract ink wash painting evoking ancient scrolls and history" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB00qyX5AFKditOxcOJuvSMA59HnCdP3xCzlwqT-uHQBKreqoTmfMBIIQjXRFqYyIP5uIrNFPrOl6XVudTSlA7DUwpHF1brSO4BMr4ShksjOQj30OIp4Ewmm-9-J6JRFjEgzP_RcLQY0VIrcDJPVz7jbUd-8azpYuuDpbQ-_SbQvljwzeg52QtRABaEPkB6areNo-EenNB8ETEpnZKvybYN96wDf4cBLD5h3mBrZ27CYlb4U0gdQWyUKQRHWGnDGwXh_ZbTkG9WEPo"/>
+</div>
+</section>
+<section class="relative w-full flex-grow flex items-center min-h-[900px] overflow-hidden pb-0">
+<div class="absolute w-full h-1 bg-secondary top-1/2 left-0 transform -translate-y-1/2 z-0 opacity-50"></div>
+<div class="w-full overflow-x-auto hide-scrollbar pb-12 pt-12 px-12 snap-x snap-mandatory h-full flex items-center">
+<div class="flex space-x-16 min-w-max relative z-10 mx-auto h-[800px]">
+<!-- Era 1: Hùng Vương -->
+<div class="relative snap-center w-64 h-full group">
+<!-- Parent Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary border-4 border-surface shadow-[0_0_20px_rgba(97,0,0,0.5)] z-30 transition-transform duration-300 group-hover:scale-110"></div>
+<!-- Parent Text -->
+<div class="absolute bottom-[calc(50%+2rem)] left-1/2 transform -translate-x-1/2 text-center w-full">
+<span class="font-headline text-2xl text-primary font-bold">Thời Đại Hùng Vương</span>
+<div class="text-sm font-label text-secondary mt-1 tracking-widest uppercase font-semibold">15/06/2879 TCN – 02/03/258 TCN</div>
+</div>
+</div>
+<!-- Era 1 Event 1 (Below) -->
+<div class="relative snap-center w-80 h-full group">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-1 h-12 bg-gradient-to-b from-secondary to-transparent -z-10 opacity-50"></div>
+<!-- Child Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-2 border-surface shadow-[0_0_10px_rgba(117,91,0,0.4)] z-30"></div>
+<!-- Child Card -->
+<div class="absolute top-[calc(50%+3rem)] left-1/2 transform -translate-x-1/2 w-full bg-surface-container-lowest p-6 rounded-lg shadow-[0_24px_40px_-12px_rgba(65,0,0,0.06)] border border-outline-variant/15 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="w-full h-40 bg-surface-container-low mb-4 rounded relative overflow-hidden">
+<img alt="ancient bronze drum with intricate patterns lit by warm museum spotlight" class="w-full h-full object-cover opacity-80 mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500" data-alt="ancient bronze drum with intricate patterns lit by warm museum spotlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbayrdR4mgSjP1shXz42GLUIUH-3EaTcCMHIUvnLPnEHhuUB77Noyz7BBG8-HNfJ1PidOm6P5vWhVi7YtItr1Nisyp1Dnt0vQBSYD9fNWDe35GV8nECSoq3r6XnqCr79xmJFC9H7NGg8qS1tMFLyWnonTqVD-CIBF2-a9QYtihko7trkOBawObw_H6mZJImYkYyuAwR8KtR3SIsX1P6w4w42wsISMxUts2KbDJJfOzj5uwYH3sHfT0SHYI0ySHem2FdbnuH5wOj-o"/>
+</div>
+<h3 class="font-headline text-xl text-primary mb-2 font-bold"><div class="text-[10px] font-label text-secondary mb-1 tracking-widest uppercase font-bold">15/06/2879 TCN</div>Thành lập nước Văn Lang</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3">Sự kiện đánh dấu bước khởi đầu của lịch sử dân tộc Việt Nam với sự ra đời của nhà nước Văn Lang do các vua Hùng trị vì.</p>
+<button class="ghost-border-btn px-4 py-2 text-sm font-label flex items-center justify-between w-full hover:bg-surface-container-low transition-colors">
+                                Xem chi tiết
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Era 1 Event 2 (Above) -->
+<div class="relative snap-center w-80 h-full group">
+<!-- Connecting Line -->
+<div class="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 w-1 h-12 bg-gradient-to-t from-secondary to-transparent -z-10 opacity-50"></div>
+<!-- Child Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-2 border-surface shadow-[0_0_10px_rgba(117,91,0,0.4)] z-30"></div>
+<!-- Child Card -->
+<div class="absolute bottom-[calc(50%+3rem)] left-1/2 transform -translate-x-1/2 w-full bg-surface-container-lowest p-6 rounded-lg shadow-[0_24px_40px_-12px_rgba(65,0,0,0.06)] border border-outline-variant/15 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="w-full h-40 bg-surface-container-low mb-4 rounded relative overflow-hidden">
+<img alt="abstract ink wash painting of a legendary battle with mythical elements" class="w-full h-full object-cover opacity-80 mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500" data-alt="abstract ink wash painting of a legendary battle with mythical elements" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdBbrUKAXUwnzelqoOc-9EkkZtGj3fiMUbdNPQvy9lI0h_-h0Fe3eTCN51EA1eoVYkziyeJVZucYGCouTD0ORGBH9W-Zp7DhmVvADFkY5tcuJCtw6Qt-0MBWSJVHKOBYeE-KY0ncsjghBLB2t83CLdOEJuI1Drp9JY4vlLgsVEHa6R-dvw07VlGfIJKD-GfK6F80vYdE9CNISAvFC0BwMNXzgYZh1ufqhDaSoUgDqXU4WTzWwsL0BUkbZPs1wIAJ-uL866zSpjVag"/>
+</div>
+<h3 class="font-headline text-xl text-primary mb-2 font-bold"><div class="text-[10px] font-label text-secondary mb-1 tracking-widest uppercase font-bold">01/01/2500 TCN</div>Truyền thuyết Sơn Tinh - Thủy Tinh</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3">Huyền thoại phản ánh cuộc đấu tranh chống lại thiên tai, bão lụt của người Việt cổ và công cuộc trị thủy thời Hùng Vương.</p>
+<button class="ghost-border-btn px-4 py-2 text-sm font-label flex items-center justify-between w-full hover:bg-surface-container-low transition-colors">
+                                Xem chi tiết
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Era 1 Event 3 (Below) -->
+<div class="relative snap-center w-80 h-full group">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-1 h-12 bg-gradient-to-b from-secondary to-transparent -z-10 opacity-50"></div>
+<!-- Child Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-2 border-surface shadow-[0_0_10px_rgba(117,91,0,0.4)] z-30"></div>
+<!-- Child Card -->
+<div class="absolute top-[calc(50%+3rem)] left-1/2 transform -translate-x-1/2 w-full bg-surface-container-lowest p-6 rounded-lg shadow-[0_24px_40px_-12px_rgba(65,0,0,0.06)] border border-outline-variant/15 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="w-full h-40 bg-surface-container-low mb-4 rounded relative overflow-hidden">
+<img alt="ancient village setting with stilt houses" class="w-full h-full object-cover opacity-80 mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500" data-alt="ancient village setting with stilt houses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSMJmpkcpIZaCf9rnN9JCPcPbOT3RPrZTjHE5lULgxkv1fvdjdmHhPLOhTP9JlvczouQ9n5qQXoZ3gGr4Ly_0ZkJglkdAk3yONnN9zkMuc6dD7SBebBkfkEwuuLr7_4MjmUOtdfC21KeI3uugEpez8yGD-7yMbuOlPjcclRBDNUKOPRDWdHoQbxl9AU7uTfae5OkFN8oqLvghbA4o_eNxJPnL6GQshRJCxIwfjTxFzL2CcGXzLaxhSH9-a_fpCykqNIFI2Z_yQFeI"/>
+</div>
+<h3 class="font-headline text-xl text-primary mb-2 font-bold"><div class="text-[10px] font-label text-secondary mb-1 tracking-widest uppercase font-bold">01/01/800 TCN</div>Văn hóa Đông Sơn</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3">Sự phát triển đỉnh cao của kỹ thuật luyện kim đồng thau, tạo ra các kiệt tác trống đồng và vũ khí tinh xảo.</p>
+<button class="ghost-border-btn px-4 py-2 text-sm font-label flex items-center justify-between w-full hover:bg-surface-container-low transition-colors">
+                                Xem chi tiết
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Era 2: Bắc Thuộc -->
+<div class="relative snap-center w-64 h-full group">
+<!-- Parent Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary border-4 border-surface shadow-[0_0_20px_rgba(97,0,0,0.5)] z-30 transition-transform duration-300 group-hover:scale-110"></div>
+<!-- Parent Text -->
+<div class="absolute top-[calc(50%+2rem)] left-1/2 transform -translate-x-1/2 text-center w-full">
+<span class="font-headline text-2xl text-primary font-bold">Thời Bắc Thuộc</span>
+<div class="text-sm font-label text-secondary mt-1 tracking-widest uppercase font-semibold">207 TCN – 938 SCN</div>
+</div>
+</div>
+<!-- Era 2 Event 1 (Above) -->
+<div class="relative snap-center w-80 h-full group">
+<!-- Connecting Line -->
+<div class="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 w-1 h-12 bg-gradient-to-t from-secondary to-transparent -z-10 opacity-50"></div>
+<!-- Child Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-2 border-surface shadow-[0_0_10px_rgba(117,91,0,0.4)] z-30"></div>
+<!-- Child Card -->
+<div class="absolute bottom-[calc(50%+3rem)] left-1/2 transform -translate-x-1/2 w-full bg-surface-container-lowest p-6 rounded-lg shadow-[0_24px_40px_-12px_rgba(65,0,0,0.06)] border border-outline-variant/15 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="w-full h-40 bg-surface-container-low mb-4 rounded relative overflow-hidden">
+<img alt="abstract representation of ancient battles, dark red and gold watercolor wash" class="w-full h-full object-cover opacity-80 mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500" data-alt="abstract representation of ancient battles, dark red and gold watercolor wash" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdBbrUKAXUwnzelqoOc-9EkkZtGj3fiMUbdNPQvy9lI0h_-h0Fe3eTCN51EA1eoVYkziyeJVZucYGCouTD0ORGBH9W-Zp7DhmVvADFkY5tcuJCtw6Qt-0MBWSJVHKOBYeE-KY0ncsjghBLB2t83CLdOEJuI1Drp9JY4vlLgsVEHa6R-dvw07VlGfIJKD-GfK6F80vYdE9CNISAvFC0BwMNXzgYZh1ufqhDaSoUgDqXU4WTzWwsL0BUkbZPs1wIAJ-uL866zSpjVag"/>
+</div>
+<h3 class="font-headline text-xl text-primary mb-2 font-bold">Khởi nghĩa Hai Bà Trưng</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3"><span class="block font-bold text-secondary mb-1 uppercase text-[10px]">04/03/40 SCN</span>Cuộc nổi dậy oai hùng của Trưng Trắc và Trưng Nhị chống lại ách đô hộ của nhà Đông Hán, giành lại độc lập ngắn ngủi.</p>
+<button class="ghost-border-btn px-4 py-2 text-sm font-label flex items-center justify-between w-full hover:bg-surface-container-low transition-colors">
+                                Xem chi tiết
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Era 2 Event 2 (Below) -->
+<div class="relative snap-center w-80 h-full group">
+<!-- Connecting Line -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-1 h-12 bg-gradient-to-b from-secondary to-transparent -z-10 opacity-50"></div>
+<!-- Child Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-2 border-surface shadow-[0_0_10px_rgba(117,91,0,0.4)] z-30"></div>
+<!-- Child Card -->
+<div class="absolute top-[calc(50%+3rem)] left-1/2 transform -translate-x-1/2 w-full bg-surface-container-lowest p-6 rounded-lg shadow-[0_24px_40px_-12px_rgba(65,0,0,0.06)] border border-outline-variant/15 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="w-full h-40 bg-surface-container-low mb-4 rounded relative overflow-hidden">
+<img alt="ancient asian temple architecture với curving roofs under soft light" class="w-full h-full object-cover opacity-90 transition-all duration-500" data-alt="ancient asian temple architecture with curving roofs under soft light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApmVnC9wewFJLy4-HCg4Xzeb-DLCayyYneSybybkHAmSXJJUIEzFtMe583V3CEWj3doqwGARRZMcls42c798tz-zDGZuNRrn0nD5yyUVoTRiLBE9w7BKcxiKta7ztfnPyGxpyN2d4bRcKmuBkX073YvpJqrrfErbLLYScJJCUGd6qgwIhHaS1p0hVr2xdzU5PqMqns-k4YUHu98r_W0IVKjmeZt-2Otq8BBTOOz12XJqVua-wb9XEg-cKTdh3V15TzA4Jycn0ZJCk"/>
+</div>
+<h3 class="font-headline text-xl text-primary mb-2 font-bold">Khởi nghĩa Lý Bí</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3"><span class="block font-bold text-secondary mb-1 uppercase text-[10px]">11/02/544 SCN</span>Lý Bí lãnh đạo nhân dân lật đổ ách thống trị của nhà Lương, lập nên nhà nước Vạn Xuân.</p>
+<button class="ghost-border-btn px-4 py-2 text-sm font-label flex items-center justify-between w-full hover:bg-surface-container-low transition-colors">
+                                Xem chi tiết
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Era 2 Event 3 (Above) -->
+<div class="relative snap-center w-80 h-full group">
+<!-- Connecting Line -->
+<div class="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 w-1 h-12 bg-gradient-to-t from-secondary to-transparent -z-10 opacity-50"></div>
+<!-- Child Marker -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-secondary border-2 border-surface shadow-[0_0_10px_rgba(117,91,0,0.4)] z-30"></div>
+<!-- Child Card -->
+<div class="absolute bottom-[calc(50%+3rem)] left-1/2 transform -translate-x-1/2 w-full bg-surface-container-lowest p-6 rounded-lg shadow-[0_24px_40px_-12px_rgba(65,0,0,0.06)] border border-outline-variant/15 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="w-full h-40 bg-surface-container-low mb-4 rounded relative overflow-hidden">
+<img alt="waves crashing against dark rocks reminiscent of Bach Dang river battle" class="w-full h-full object-cover opacity-80 mix-blend-multiply grayscale hover:grayscale-0 transition-all duration-500" data-alt="waves crashing against dark rocks reminiscent of Bach Dang river battle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSMJmpkcpIZaCf9rnN9JCPcPbOT3RPrZTjHE5lULgxkv1fvdjdmHhPLOhTP9JlvczouQ9n5qQXoZ3gGr4Ly_0ZkJglkdAk3yONnN9zkMuc6dD7SBebBkfkEwuuLr7_4MjmUOtdfC21KeI3uugEpez8yGD-7yMbuOlPjcclRBDNUKOPRDWdHoQbxl9AU7uTfae5OkFN8oqLvghbA4o_eNxJPnL6GQshRJCxIwfjTxFzL2CcGXzLaxhSH9-a_fpCykqNIFI2Z_yQFeI"/>
+</div>
+<h3 class="font-headline text-xl text-primary mb-2 font-bold">Khởi nghĩa Khúc Thừa Dụ</h3>
+<p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-3"><span class="block font-bold text-secondary mb-1 uppercase text-[10px]">01/01/905 SCN</span>Khúc Thừa Dụ tự xưng Tiết độ sứ, đặt nền móng cho việc khôi phục nền độc lập tự chủ của dân tộc.</p>
+<button class="ghost-border-btn px-4 py-2 text-sm font-label flex items-center justify-between w-full hover:bg-surface-container-low transition-colors">
+                                Xem chi tiết
+                                <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="w-12"></div>
+</div>
+</div>
+</section>
+<!-- Heritage Highlights Section -->
+<div class="w-full flex justify-center py-4"><div class="flex items-center justify-center gap-6"><button class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-primary hover:bg-surface-variant transition-colors shadow-sm"><span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span></button><div class="custom-timeline-scrollbar mx-0"><div class="custom-timeline-scrollbar-thumb"></div></div><button class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-primary hover:bg-surface-variant transition-colors shadow-sm"><span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span></button></div></div><section class="px-12 max-w-screen-2xl mx-auto w-full py-16 mt-8 relative border-t border-outline-variant/30">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-3xl font-headline text-[#8B0000] mb-2">Điểm sáng di sản</h2>
+<p class="font-body text-on-surface-variant text-sm">Những cổ vật và biểu tượng văn hóa tiêu biểu qua các thời kỳ.</p>
+</div>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full border border-[#C9A84C]/50 flex items-center justify-center text-[#C9A84C] hover:bg-[#C9A84C]/10 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-full border border-[#C9A84C]/50 flex items-center justify-center text-[#C9A84C] hover:bg-[#C9A84C]/10 transition-colors shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex space-x-6 overflow-x-auto hide-scrollbar pb-8 snap-x">
+<!-- Highlight Card 1 -->
+<div class="min-w-[300px] bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/20 snap-start group cursor-pointer hover:shadow-md transition-all">
+<div class="w-full h-48 bg-stone-200 rounded-lg mb-4 overflow-hidden relative">
+<img alt="Dong Son Drum artifact" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYPNeMa09BiwTQ22J39otOYqrLXMCta9BsftWVKVWZg8rXz8yQRoAWOE05w8LBFruWMtMyM2HIHu4CIG9LVn-aTi5KeJ2JHJ_78moprJLVoVFx4Q4k-fymJd84nEKxFOBcv-zNPs7TaTJwertl0XN4quXoUfnD_G8tgp2Li82LkLGAdM83l2LWtJ6texB5qQ_Ct4hSo5ApDMtIJyEYxP2FNoNv_2A96qfGE_3TiZR0r5vA5Il14Ltd7k9j-zxvvoE2xlEDZmJC--Y"/>
+<div class="absolute top-2 right-2 bg-[#C9A84C] text-white text-xs font-label px-2 py-1 rounded shadow-sm">Thời Hùng Vương</div>
+</div>
+<h4 class="font-headline text-lg text-[#8B0000] mb-1">Trống đồng Đông Sơn</h4>
+<p class="font-body text-xs text-stone-500 line-clamp-2">Biểu tượng rực rỡ của nền văn minh lúa nước, thể hiện kỹ thuật đúc đồng tinh xảo và tư duy nghệ thuật độc đáo.</p>
+</div>
+<!-- Highlight Card 2 -->
+<div class="min-w-[300px] bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/20 snap-start group cursor-pointer hover:shadow-md transition-all">
+<div class="w-full h-48 bg-stone-200 rounded-lg mb-4 overflow-hidden relative">
+<img alt="Imperial Citadel architecture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARcru3dLIxv7pW5j8xV9MRsvpTlYZjmk5ZicYYcRTivISKP5WRQFhAUXls77890NBNBGGkTaNYSrbBcd04QFJbtXUmLLsST3xzSoYkVB6pSzEsIMEgxryT4UaZUsiBHHBRPhAzfh9EwbaI3fEdowKrn_-RC-5X80n4VFKtvM9VO5W2CtBYiMaQPJI1iCNVenz95JPfl6EKCTZo9dcJ9UFUEyyu5HH9EzryK4tzssEZLvevkIduR4a1REHrxrkNWyN-UoIt6r-nRvA"/>
+<div class="absolute top-2 right-2 bg-[#C9A84C] text-white text-xs font-label px-2 py-1 rounded shadow-sm">Thời Lý - Trần</div>
+</div>
+<h4 class="font-headline text-lg text-[#8B0000] mb-1">Hoàng thành Thăng Long</h4>
+<p class="font-body text-xs text-stone-500 line-clamp-2">Quần thể di tích gắn liền với lịch sử kinh thành Thăng Long, minh chứng cho sức sống nghìn năm của dân tộc.</p>
+</div>
+<!-- Highlight Card 3 -->
+<div class="min-w-[300px] bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/20 snap-start group cursor-pointer hover:shadow-md transition-all">
+<div class="w-full h-48 bg-stone-200 rounded-lg mb-4 overflow-hidden relative">
+<img alt="Ceramic Bowl artifact" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv9mN49pjXrnIeS1dBwWswzVagtVMalI95IarjiQ9ABAs6fFqHZjIUB3HVUvdwGxr73hClEZq5uh9_j9Mg6EmULU-w0zjI4AJR9qlEjM0aodqeB9CwEO0KZo110kgDZ_W0S5G6pbjTR-hF1Nnv3sW8ebIhiMUxCftO36g7y1i6qgE4lrrtDSCITUrf3DnnM7Kc7vCDceSHDAH8fffsC-_R8uTZpEh-jbL9jTrqxsvKjzBrR50UPeY4_Oz_3yIASYf4r3EhSxzC6z8"/>
+<div class="absolute top-2 right-2 bg-[#C9A84C] text-white text-xs font-label px-2 py-1 rounded shadow-sm">Thời Hậu Lê</div>
+</div>
+<h4 class="font-headline text-lg text-[#8B0000] mb-1">Gốm Chu Đậu</h4>
+<p class="font-body text-xs text-stone-500 line-clamp-2">Dòng gốm mỹ nghệ cao cấp với men tro trấu đặc trưng, phát triển rực rỡ và xuất khẩu khắp thế giới.</p>
+</div>
+<!-- Highlight Card 4 -->
+<div class="min-w-[300px] bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-outline-variant/20 snap-start group cursor-pointer hover:shadow-md transition-all">
+<div class="w-full h-48 bg-stone-200 rounded-lg mb-4 overflow-hidden relative">
+<img alt="Hue Citadel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDScKVAxdpU46E8HDf0wdy39SRaQ57owklItsX_92flUKPtoQsJBwiAI6MKb-KXgYvjVOSyROzu4mPvccsbC_5tvJpj9uIUglspSmfoaL0qycXnfEu6j80IypnRUY1DI1C2xZBeGEl2KRLWhH9FwjKbn6vdKkTqbc9BKHS6VB6unPu5UPcP9siSwK9IPerRAzfbXo4lYwIC6cs53tktGwL7ZkZIbHYsvgA4TVVfbz70AeJwBq-xOjqYNr6RrzsSSWXiUmlKZH6DfjA"/>
+<div class="absolute top-2 right-2 bg-[#C9A84C] text-white text-xs font-label px-2 py-1 rounded shadow-sm">Thời Nguyễn</div>
+</div>
+<h4 class="font-headline text-lg text-[#8B0000] mb-1">Cửu Đỉnh</h4>
+<p class="font-body text-xs text-stone-500 line-clamp-2">Chín đỉnh đồng lớn đặt trước Thế Miếu, chạm khắc tinh xảo cảnh vật non sông, tượng trưng cho sự bền vững của vương triều.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fbf9f5] w-full pt-16 pb-8 bg-gradient-to-t from-[#fbf9f5] to-transparent border-t border-[#8B0000]/10 mt-auto">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-serif font-black text-xl text-[#8B0000]">LẠC VIỆT TÀNG THƯ</span>
+<span class="font-sans text-sm uppercase tracking-widest text-slate-500">© 2024 LẠC VIỆT TÀNG THƯ. KHO LƯU TRỮ LỊCH SỬ SỐ QUỐC GIA.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6 font-sans text-sm uppercase tracking-widest">
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Thông Tin Tổ Chức</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Chính Sách Bảo Mật</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Tiêu Chuẩn Lưu Trữ</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Liên Hệ</a>
+</div>
+</div>
+</footer>
+</body></html>

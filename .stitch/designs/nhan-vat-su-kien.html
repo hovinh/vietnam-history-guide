@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Đại Việt Kỷ Sử - Nhân Vật &amp; Sự Kiện</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Noto+Serif:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#e3beb8",
+                        "on-surface-variant": "#5a403c",
+                        "on-primary-fixed": "#410000",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2f0ed",
+                        "inverse-surface": "#30312e",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fed977",
+                        "tertiary": "#00178d",
+                        "surface-variant": "#e4e2de",
+                        "surface-container-highest": "#e4e2de",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#fbf9f5",
+                        "primary-fixed": "#ffdad4",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1c1a",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "surface-container-low": "#f5f3ef",
+                        "tertiary-fixed": "#dfe0ff",
+                        "surface": "#fbf9f5",
+                        "primary": "#610000",
+                        "on-secondary-fixed": "#241a00",
+                        "on-primary-fixed-variant": "#920703",
+                        "on-primary-container": "#ff907f",
+                        "on-tertiary-fixed": "#000d60",
+                        "surface-container-high": "#eae8e4",
+                        "on-tertiary-container": "#9ea9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1c1a",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#b52619",
+                        "on-tertiary-fixed-variant": "#0d2ccc",
+                        "surface-dim": "#dbdad6",
+                        "primary-container": "#8b0000",
+                        "on-secondary-fixed-variant": "#584400",
+                        "secondary": "#755b00",
+                        "secondary-fixed-dim": "#e6c364",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#0025c8",
+                        "outline": "#8e706b",
+                        "tertiary-fixed-dim": "#bcc3ff",
+                        "background": "#fbf9f5",
+                        "secondary-fixed": "#ffe08f",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#ffb4a8",
+                        "surface-container": "#efeeea",
+                        "on-secondary-container": "#785d00"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Be Vietnam Pro", "sans-serif"],
+                        "label": ["Be Vietnam Pro", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .lacquer-gradient {
+            background: linear-gradient(45deg, #610000, #8b0000);
+        }
+        .ghost-border {
+            border: 1px solid rgba(227, 190, 184, 0.15); /* outline-variant at 15% */
+        }
+        .gold-border {
+            border: 1px solid rgba(117, 91, 0, 0.3); /* secondary */
+        }
+        .museum-shadow {
+            box-shadow: 0 10px 40px -10px rgba(65, 0, 0, 0.06);
+        }
+        /* Asymmetric grid utility */
+        .grid-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 20px;
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col relative">
+<!-- Decorative Background Watermark (Dong Son Drum concept) -->
+<div class="fixed inset-0 pointer-events-none z-[-1] opacity-5 overflow-hidden flex items-center justify-center">
+<img alt="" class="w-[150vw] h-[150vw] object-cover opacity-30 grayscale mix-blend-multiply" data-alt="Subtle abstract circular geometric pattern resembling ancient bronze drum engravings in warm earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGlEkmsS9hskvfki6ZbPdlG_FY2h_0PzppniU0O66zKB8qto3SC09mDSBjA3j6Ov7DaXmW5hEXu6TRIE5xCBP0oNakLQXw-yjILaMZMAvUUhSPBvXVlgjttIkIyHGcUMD974aZA9WUQkhc8eL1GO80jPHsmBexCV7fVJyWT4v3J4DwBFXReShxnrkkXlbuQlDRekN8vbHWW_bOBsXu2quCk3Kppt_qUtoUkzEONxl5GJSiVBr7FljCZqjRmGSX16eE8B6NBVTXvSA"/>
+</div>
+<!-- TopNavBar -->
+<nav class="bg-[#fbf9f5]/80 dark:bg-slate-950/80 backdrop-blur-md fixed top-0 w-full z-50 bg-surface-container-low shadow-[0_20px_40px_-15px_rgba(65,0,0,0.06)] border-b-0">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-serif font-bold text-2xl text-[#8B0000] tracking-widest">LẠC VIỆT TÀNG THƯ</div>
+<div class="hidden md:flex gap-8 items-center font-serif text-lg tracking-tight">
+<a class="text-slate-700 font-medium hover:text-[#C9A84C] transition-colors duration-300" href="#">Trang Chủ</a>
+<a class="text-slate-700 font-medium hover:text-[#C9A84C] transition-colors duration-300" href="#">Dòng Thời Gian</a>
+<a class="text-[#C9A84C] pb-1 font-bold" href="#">Nhân Vật &amp; Sự Kiện</a></div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#8B0000] hover:text-[#C9A84C] cursor-pointer transition-colors duration-300">search</span>
+<button class="lacquer-gradient text-white font-label text-sm uppercase tracking-widest px-6 py-2 rounded scale-95 active:opacity-80 transition-all hover:brightness-110">ĐÓNG GÓP</button>
+</div>
+</div>
+</nav>
+<!-- Main Canvas -->
+<main class="flex-grow pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+<!-- Hero Section: Intentional Asymmetry -->
+<section class="mb-24 flex flex-col md:flex-row items-end gap-12 relative">
+<div class="md:w-3/5 z-10 bg-surface/90 backdrop-blur-sm p-8 lg:p-12 -ml-4 lg:-ml-8 rounded-lg shadow-[0_20px_40px_rgba(65,0,0,0.03)] border-l-4 border-primary">
+<span class="font-body text-secondary text-sm font-bold tracking-widest uppercase mb-4 block">Hồ Sơ Cổ Nhân</span>
+<h1 class="font-headline text-5xl md:text-6xl text-primary font-bold leading-tight mb-6">
+                    Văn Hiến Nghìn Năm: Những Người Con Ưu Tú
+                </h1>
+<p class="font-body text-on-surface-variant text-lg leading-relaxed max-w-2xl">
+                    Khám phá kho tàng di sản sống động qua chân dung những anh hùng, danh nhân văn hóa đã tạc nên dáng hình đất nước. Mỗi cuộc đời là một dấu ấn trong dòng chảy lịch sử Đại Việt.
+                </p>
+</div>
+<div class="md:w-2/5 relative h-80 md:h-[450px] w-full rounded-lg overflow-hidden ghost-border">
+<img alt="Ancient architecture" class="w-full h-full object-cover" data-alt="Close up of traditional vietnamese temple roof details with weathered wood and intricate terracotta carvings under soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7duSdg7JzD-CeenbV7iUBAVaLzEHZI7f43Fl0ntJ_ou4mMlBP2RMuFO6XlByeovzAczFpxp-6vTeiqm7uqN3byA4UeBxejtgZGDLXukUa5s7EvrUn0otlrP9PHKchuEioVsbhVLq8bJ0ikilk-ArFxkEEAVTl2IM5CVs7ZmCuLIe4-AFzLKhWn3DmgxxNiJuP2qkWqNUQtNFOhqq0JfoWKfUzM15gokxrCQ8ei8n6l3OKoHIGvrUwtNBe_aUylPj6_zk9FdjoAFk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent opacity-60"></div>
+</div>
+</section>
+<!-- Academic Filter Section -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row justify-between items-center bg-surface-container-low p-6 rounded-lg ghost-border gap-6">
+<div class="font-headline text-primary font-semibold text-xl">
+                    Phân Tách Triều Đại
+                </div>
+<div class="flex flex-wrap gap-3 justify-center md:justify-end">
+<button class="px-5 py-2 rounded-lg font-label text-sm font-medium transition-all duration-300 text-on-surface hover:bg-surface-variant ghost-border">Hùng Vương</button>
+<button class="px-5 py-2 rounded-lg font-label text-sm font-medium transition-all duration-300 text-on-surface hover:bg-surface-variant ghost-border">Lý</button>
+<button class="px-5 py-2 rounded-lg font-label text-sm font-medium transition-all duration-300 text-on-primary lacquer-gradient shadow-md">Trần</button>
+<button class="px-5 py-2 rounded-lg font-label text-sm font-medium transition-all duration-300 text-on-surface hover:bg-surface-variant ghost-border">Lê</button>
+<button class="px-5 py-2 rounded-lg font-label text-sm font-medium transition-all duration-300 text-on-surface hover:bg-surface-variant ghost-border">Nguyễn</button>
+<button class="px-5 py-2 rounded-lg font-label text-sm font-medium transition-all duration-300 text-on-surface hover:bg-surface-variant ghost-border">Cận Đại</button>
+</div>
+</div>
+</section>
+<!-- Character Grid (Museum Display) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col gold-border museum-shadow group relative">
+<!-- Dong Son Watermark -->
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+<svg class="w-full h-full fill-primary" viewbox="0 0 100 100"><circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="2"></circle><circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></circle><polygon fill="none" points="50,20 55,30 65,30 58,40 60,50 50,45 40,50 42,40 35,30 45,30" stroke="currentColor"></polygon></svg>
+</div>
+<div class="h-64 overflow-hidden relative">
+<img alt="Ngô Quyền portrait concept" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter sepia-[.3]" data-alt="Artistic classical portrait painting of an ancient vietnamese general looking resolute, warm sepia tones with soft painterly texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt-9cGC2jzgeuxr4Td8TzEU-aBK3Nyo-7dYoonVBJbMFp2ZB2hVXwbE3bkSycvp6omOmZWgZ5I-6BmW5QPjxiXeE8C4DlcIOZAuLSSpVGxKSHWazv5995TZMLYtCAyzYAzW8YN-1fzf-MlTttC699w2CMweHSM8C6JfoGa5mFRfLe99QtgFADP6ya8meEB1ZFAd_1ZPv7Yqp7yuIwmr50hIwzpUdHO-BpKBpcg3Y15RtQLJPPkrBZwtfGrDGbY-OFP4YTod5PAXf4"/>
+<div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow z-10 -mt-12 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-xs font-bold text-secondary tracking-widest uppercase">Kỷ Tiền Ngô</span>
+<span class="font-label text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded">898 – 944</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-3">Ngô Quyền</h2>
+<p class="font-label text-sm font-medium text-on-surface mb-4 pb-4 border-b border-outline-variant/30">Vị vua sáng lập nhà Ngô</p>
+<p class="font-body text-sm text-on-surface-variant line-clamp-3 mb-6 flex-grow">
+                        Người anh hùng dân tộc với chiến thắng Bạch Đằng lịch sử năm 938, chấm dứt hơn 1000 năm Bắc thuộc, mở ra kỷ nguyên độc lập tự chủ lâu dài cho dân tộc Việt Nam.
+                    </p>
+<button class="mt-auto w-full py-3 rounded text-sm font-bold font-label border border-secondary text-secondary hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                        Xem chi tiết
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col gold-border museum-shadow group relative">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+<svg class="w-full h-full fill-primary" viewbox="0 0 100 100"><circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="2"></circle><circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></circle><polygon fill="none" points="50,20 55,30 65,30 58,40 60,50 50,45 40,50 42,40 35,30 45,30" stroke="currentColor"></polygon></svg>
+</div>
+<div class="h-64 overflow-hidden relative">
+<img alt="Lý Thường Kiệt portrait concept" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter sepia-[.3]" data-alt="Classical illustration style portrait of an ancient vietnamese scholar-general holding a scroll, warm muted colors, historical aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBodWVVeDmnGGqGpNKx4NzIR3zLhd8N-kyNs_GPA13M7avB5ZcaRyNTUDD9fgxRb5uSlM9LIHdVK5IFlK_DM6pkFtGRW5iWJZ9jNAGeF7CW-sk0T0rSzJUMdPbzB_tuSQ56VKhEb3fbTz7vz5lKJJ7ylSNbbdoIEAK5ei4mymbgpb8i3fR0RFHrCM1R09VNrk75k640ARfSElyegcRonSIPDBHyNLd-edY654vncqTF3yR-0fj9_0JI95-LXXv5aL-dF_9Oc9zKOxs"/>
+<div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow z-10 -mt-12 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-xs font-bold text-secondary tracking-widest uppercase">Nhà Lý</span>
+<span class="font-label text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded">1019 – 1105</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-3">Lý Thường Kiệt</h2>
+<p class="font-label text-sm font-medium text-on-surface mb-4 pb-4 border-b border-outline-variant/30">Thái úy, Tể tướng</p>
+<p class="font-body text-sm text-on-surface-variant line-clamp-3 mb-6 flex-grow">
+                        Danh tướng kiệt xuất, tác giả của "Nam quốc sơn hà" - bản Tuyên ngôn độc lập đầu tiên của dân tộc, lãnh đạo quân dân Đại Việt đánh tan quân Tống xâm lược.
+                    </p>
+<button class="mt-auto w-full py-3 rounded text-sm font-bold font-label border border-secondary text-secondary hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                        Xem chi tiết
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col gold-border museum-shadow group relative">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+<svg class="w-full h-full fill-primary" viewbox="0 0 100 100"><circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="2"></circle><circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></circle><polygon fill="none" points="50,20 55,30 65,30 58,40 60,50 50,45 40,50 42,40 35,30 45,30" stroke="currentColor"></polygon></svg>
+</div>
+<div class="h-64 overflow-hidden relative">
+<img alt="Trần Hưng Đạo portrait concept" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter sepia-[.3]" data-alt="Epic historical painting of a dignified vietnamese military commander in armor standing on a boat, dramatic lighting, deep rich reds and golds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJFrpzZCihfeEFnPe--QTUhDBNZ4X6_sUSc0HfsXqtURNl3XP6oQTbc-CYmbN4GqKOHuY1ThUpOpniXVH53dMjWFZ_oDBC7fvfxatO9BWOk8_zAEuved4d4RloycGLuu8-WkU17_vN0K0jmSnAs3dwd785z1YIFeYpLi06prGtZhyeKEuJLt_5df61Of4NdhyznXxLcByZZllssF-bE6xgYALzqkGVgfdgEw4Zui0_jlvu0hSbA_HYFvYYkmSwRrmhEKjopSxCVSA"/>
+<div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow z-10 -mt-12 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-xs font-bold text-secondary tracking-widest uppercase">Nhà Trần</span>
+<span class="font-label text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded">1228 – 1300</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-3">Trần Hưng Đạo</h2>
+<p class="font-label text-sm font-medium text-on-surface mb-4 pb-4 border-b border-outline-variant/30">Quốc công Tiết chế</p>
+<p class="font-body text-sm text-on-surface-variant line-clamp-3 mb-6 flex-grow">
+                        Nhà quân sự thiên tài, vị anh hùng dân tộc đã lãnh đạo quân dân Đại Việt ba lần đánh thắng quân Nguyên Mông xâm lược vào thế kỷ 13, tác giả của "Hịch tướng sĩ".
+                    </p>
+<button class="mt-auto w-full py-3 rounded text-sm font-bold font-label border border-secondary text-secondary hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                        Xem chi tiết
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col gold-border museum-shadow group relative">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+<svg class="w-full h-full fill-primary" viewbox="0 0 100 100"><circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="2"></circle><circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></circle><polygon fill="none" points="50,20 55,30 65,30 58,40 60,50 50,45 40,50 42,40 35,30 45,30" stroke="currentColor"></polygon></svg>
+</div>
+<div class="h-64 overflow-hidden relative">
+<img alt="Lê Lợi portrait concept" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter sepia-[.3]" data-alt="Artistic classical portrait painting of an ancient vietnamese king looking resolute, warm sepia tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt-9cGC2jzgeuxr4Td8TzEU-aBK3Nyo-7dYoonVBJbMFp2ZB2hVXwbE3bkSycvp6omOmZWgZ5I-6BmW5QPjxiXeE8C4DlcIOZAuLSSpVGxKSHWazv5995TZMLYtCAyzYAzW8YN-1fzf-MlTttC699w2CMweHSM8C6JfoGa5mFRfLe99QtgFADP6ya8meEB1ZFAd_1ZPv7Yqp7yuIwmr50hIwzpUdHO-BpKBpcg3Y15RtQLJPPkrBZwtfGrDGbY-OFP4YTod5PAXf4"/>
+<div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow z-10 -mt-12 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-xs font-bold text-secondary tracking-widest uppercase">Nhà Hậu Lê</span>
+<span class="font-label text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded">1385 – 1433</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-3">Lê Lợi</h2>
+<p class="font-label text-sm font-medium text-on-surface mb-4 pb-4 border-b border-outline-variant/30">Hoàng đế sáng lập nhà Hậu Lê</p>
+<p class="font-body text-sm text-on-surface-variant line-clamp-3 mb-6 flex-grow">
+                        Lãnh tụ cuộc khởi nghĩa Lam Sơn, đánh đuổi quân Minh xâm lược, giành lại độc lập cho Đại Việt và mở ra triều đại dài nhất trong lịch sử Việt Nam.
+                    </p>
+<button class="mt-auto w-full py-3 rounded text-sm font-bold font-label border border-secondary text-secondary hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                        Xem chi tiết
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col gold-border museum-shadow group relative">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+<svg class="w-full h-full fill-primary" viewbox="0 0 100 100"><circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="2"></circle><circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></circle><polygon fill="none" points="50,20 55,30 65,30 58,40 60,50 50,45 40,50 42,40 35,30 45,30" stroke="currentColor"></polygon></svg>
+</div>
+<div class="h-64 overflow-hidden relative">
+<img alt="Quang Trung portrait concept" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter sepia-[.3]" data-alt="Epic historical painting of a dynamic vietnamese military commander, dramatic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJFrpzZCihfeEFnPe--QTUhDBNZ4X6_sUSc0HfsXqtURNl3XP6oQTbc-CYmbN4GqKOHuY1ThUpOpniXVH53dMjWFZ_oDBC7fvfxatO9BWOk8_zAEuved4d4RloycGLuu8-WkU17_vN0K0jmSnAs3dwd785z1YIFeYpLi06prGtZhyeKEuJLt_5df61Of4NdhyznXxLcByZZllssF-bE6xgYALzqkGVgfdgEw4Zui0_jlvu0hSbA_HYFvYYkmSwRrmhEKjopSxCVSA"/>
+<div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow z-10 -mt-12 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-xs font-bold text-secondary tracking-widest uppercase">Nhà Tây Sơn</span>
+<span class="font-label text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded">1753 – 1792</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-3">Quang Trung - Nguyễn Huệ</h2>
+<p class="font-label text-sm font-medium text-on-surface mb-4 pb-4 border-b border-outline-variant/30">Hoàng đế nhà Tây Sơn</p>
+<p class="font-body text-sm text-on-surface-variant line-clamp-3 mb-6 flex-grow">
+                        Nhà quân sự bách chiến bách thắng, người anh hùng áo vải đã đánh tan 5 vạn quân Xiêm và 29 vạn quân Thanh, có công lớn trong việc thống nhất đất nước.
+                    </p>
+<button class="mt-auto w-full py-3 rounded text-sm font-bold font-label border border-secondary text-secondary hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                        Xem chi tiết
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="bg-surface-container-lowest rounded-lg overflow-hidden flex flex-col gold-border museum-shadow group relative">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 pointer-events-none">
+<svg class="w-full h-full fill-primary" viewbox="0 0 100 100"><circle cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="2"></circle><circle cx="50" cy="50" fill="none" r="30" stroke="currentColor" stroke-dasharray="2,2" stroke-width="1"></circle><polygon fill="none" points="50,20 55,30 65,30 58,40 60,50 50,45 40,50 42,40 35,30 45,30" stroke="currentColor"></polygon></svg>
+</div>
+<div class="h-64 overflow-hidden relative">
+<img alt="Võ Nguyên Giáp portrait concept" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter sepia-[.3]" data-alt="Classical illustration style portrait of a modern vietnamese general, historical aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBodWVVeDmnGGqGpNKx4NzIR3zLhd8N-kyNs_GPA13M7avB5ZcaRyNTUDD9fgxRb5uSlM9LIHdVK5IFlK_DM6pkFtGRW5iWJZ9jNAGeF7CW-sk0T0rSzJUMdPbzB_tuSQ56VKhEb3fbTz7vz5lKJJ7ylSNbbdoIEAK5ei4mymbgpb8i3fR0RFHrCM1R09VNrk75k640ARfSElyegcRonSIPDBHyNLd-edY654vncqTF3yR-0fj9_0JI95-LXXv5aL-dF_9Oc9zKOxs"/>
+<div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+</div>
+<div class="p-8 flex flex-col flex-grow z-10 -mt-12 bg-surface-container-lowest">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label text-xs font-bold text-secondary tracking-widest uppercase">Cận Đại</span>
+<span class="font-label text-xs text-on-surface-variant bg-surface-variant px-2 py-1 rounded">1911 – 2013</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-primary mb-3">Võ Nguyên Giáp</h2>
+<p class="font-label text-sm font-medium text-on-surface mb-4 pb-4 border-b border-outline-variant/30">Đại tướng, Tổng tư lệnh</p>
+<p class="font-body text-sm text-on-surface-variant line-clamp-3 mb-6 flex-grow">
+                        Vị tướng huyền thoại của thế kỷ 20, người chỉ huy xuất sắc chiến dịch Điện Biên Phủ lịch sử chấn động địa cầu, giành độc lập tự do cho Tổ quốc.
+                    </p>
+<button class="mt-auto w-full py-3 rounded text-sm font-bold font-label border border-secondary text-secondary hover:bg-secondary/5 transition-colors flex items-center justify-center gap-2">
+                        Xem chi tiết
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Pagination / Load More -->
+<div class="mt-16 flex justify-center">
+<button class="px-8 py-3 rounded-lg font-label font-bold text-on-primary lacquer-gradient shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                Tải thêm tài liệu
+                <span class="material-symbols-outlined text-[20px]">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#fbf9f5] w-full pt-16 pb-8 bg-gradient-to-t from-[#fbf9f5] to-transparent border-t border-[#8B0000]/10 mt-auto">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-serif font-black text-xl text-[#8B0000]">LẠC VIỆT TÀNG THƯ</span>
+<span class="font-sans text-sm uppercase tracking-widest text-slate-500">© 2024 LẠC VIỆT TÀNG THƯ. KHO LƯU TRỮ LỊCH SỬ SỐ QUỐC GIA.</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6 font-sans text-sm uppercase tracking-widest">
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Thông Tin Tổ Chức</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Chính Sách Bảo Mật</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Tiêu Chuẩn Lưu Trữ</a>
+<a class="text-slate-500 hover:text-[#8B0000] opacity-80 hover:opacity-100 transition-all" href="#">Liên Hệ</a>
+</div>
+</div>
+</footer>
+</body></html>
